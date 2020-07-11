@@ -17,7 +17,7 @@ const CartScreen = (props) => {
     const checkoutHandler = () => {
         props.history.push("/signin?redirect=shipping");
     }
-    
+
     useEffect(() => {
         if (productId) {
             dispatch(addToCart(productId, qty));
@@ -73,7 +73,7 @@ const CartScreen = (props) => {
                     $ {cartItems.reduce((a,c) => a + c.price * c.qty, 0)}
                     
                 </h3>
-                <button className="button primary" disabled={cartItems.length === 0}>
+                <button className="button primary" onClick={checkoutHandler} disabled={cartItems.length === 0}>
                     Proceed to checkout
                 </button>
         </div>

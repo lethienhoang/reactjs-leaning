@@ -170,3 +170,22 @@ footer {
 .right {
   float: right;
 }
+
+
+.form-container {
+  padding: 0;
+  width: 100%;
+  list-style-type: noe
+  ;
+}
+
+.form-container li {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+input {
+  padding: 1rem;
+  border: .1rem #c0c0c0 solid;
+}

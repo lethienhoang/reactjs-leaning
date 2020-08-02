@@ -122,7 +122,7 @@ class Cart extends Component {
                       ></input>
                     </li>
                     <li>
-                      <button
+                      {/* <button
                         type="submit"
                         onClick={() => {
                           this.createOrder;
@@ -130,7 +130,7 @@ class Cart extends Component {
                         className="button primary"
                       >
                         Checkout
-                      </button>
+                      </button> */}
                     </li>
                   </ul>
                 </form>

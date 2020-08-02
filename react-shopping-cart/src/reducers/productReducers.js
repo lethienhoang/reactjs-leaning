@@ -1,9 +1,22 @@
-import { FETCH_PRODUCTS } from "../../types.js";
+import { FETCH_PRODUCTS, FILTER_PRODUCTS_BY_SIZE, ORDER_PRODUCTS_BY_PRICE } from "../types.js";
 
 const productReducer = (state = {}, action) => {
     switch(action.type) {
         case FETCH_PRODUCTS :
-            return { items: action.payload}
+            return { items: action.payload, filteredItems: action.payload};
+        case FILTER_PRODUCTS_BY_SIZE:
+            return {
+                ...state,
+                size: action.payload.size,
+                filterItems: action.payload.items
+            }
+        case ORDER_PRODUCTS_BY_PRICE: {
+            return {
+                ...state,
+                sort: action.payload.sort,
+                filterItems: action.payload.items
+            }
+        }
         default:
             return state;
     }

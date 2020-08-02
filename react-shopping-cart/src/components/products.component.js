@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import formatCurrency from "../util";
 import Fade from "react-reveal/Fade";
 import Modal from "react-modal";
-import Zoom from "react-reveal/zoom";
-import { connect } from "react-redux";
+import Zoom from "react-reveal/Zoom";
 import { connect } from "react-redux";
 import { fetchProduct } from "../actions/productActions";
 
@@ -16,6 +15,10 @@ class Products extends Component {
     };
   }
 
+  componentDidMount() {
+    this.props.fetchProduct();
+  }
+
   openModal = (product) => {
     this.setState({ product });
   };
@@ -24,11 +27,8 @@ class Products extends Component {
     this.setState({ product: null });
   };
 
-  componentDidMount() {
-    this.props.fetchProduct();
-  }
-
   render() {
+    const { product } = this.state;
     return (
       <div>
         <Fade button cascade={true}>
@@ -104,6 +104,6 @@ class Products extends Component {
   }
 }
 
-export default connect((state) => ({ product: state.items }), {
+export default connect((state) => ({ product: state.products.filteredItems }), {
   fetchProduct,
 })(Products);
